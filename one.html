@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="two.css">
+    <script src="https://kit.fontawesome.com/480e322493.js" crossorigin="anonymous"></script>
+</head>  
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="img/Screenshot 2023-07-08 093210.png" class="logo">
+                <ul>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#project">Project</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-xmark"></i>
+                </ul>
+                <i class="fa-solid fa-bars"></i>
+            </nav>
+            <div class="header-text">
+                <p>Full Stack Developer</p>
+                <h1>Hlo, I'm <span>Arun Jaya Pathi C U</span><br></h1>
+                <h3>Electronics and Communication Engineer</h3>
+            </div>
+        </div>
+    </div>
+    <!--------About----------->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="img/WhatsApp Image 2023-07-08 at 09.47.55.jpg">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>My objective is to be the best web developer that I can be and contribute to the technology industry all that I know and can do. I am dedicated to perfecting my craft by learning from more seasoned developers, remaining humble, and continuously making strides to learn all that I can about development.</p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Frontend</span><br>HTML, CSS, JavaScript, React</li>
+                            <li><span>Backend</span><br>Java, Python, MongoDB, SQL</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2018 - 2019</span><br>Gedee Public School<br>SSLC - 70.91%</li>
+                            <li><span>2020 - 2021</span><br>PMG Matriculation Higher Secondary School<br>HSC - 83.65%</li>
+                            <li><span>2021 - 2025</span><br>Sri Eshwar College of Engineering<br>CGPA - 7.33</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-------------Project--------->
+    <div id="project">
+        <div class="container">
+            <h1 class="sub-title">My Project</h1>
+            <div class="project-list">
+                <div class="pro">
+                    <img src="img/WhatsApp Image 2023-07-08 at 10.13.35.jpg">
+                    <div class="layer">
+                        <h3>Sunlight Tracking Solar Panel</h3>
+                        <p> In this project, We have used a Arduino uno, some LDRs to detect the Sunlight and Servo Motors to rotate according to the Sunlight.</p>
+                        <a href="Sunlight Tracking Solarpanel.docx"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------contact--------------->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact</h1>
+                    <p><i class="fa-solid fa-envelope"></i><a href="mailto:arunjayapathi.cu2021ecea@sece.ac.in">arunjayapathi.cu2021ecea@sece.ac.in</a></p>
+                    <p><i class="fa-solid fa-square-phone"></i><a href="tel:+91 94984 26712">+91 94984 26712</a></p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/the_ultimate_weapon_/"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://github.com/arunjayapathi007/arunjayapathi007"><i class="fa-brands fa-square-github"></i></a>
+                        <a href="https://www.linkedin.com/in/arun-jaya-pathi-cu-31437426a/"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                    <a href="c:\Users\Amresh\Desktop\Mern Stack\Portfolio\images\Amresh Resume Final.pdf" class="btn btn2">Download Resume</a>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email" placeholder="Your e-mail" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+   
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link")
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab")
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwHp71e3TGyfJEFsyALdhgezG7UN9GVMPmXl3Jzg5aH-IE8aGAuHSmma7ulUidvssXYGA/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Message sent Successfully"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                },5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+
+
+</body>
+</html>
